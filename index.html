@@ -33,13 +33,11 @@
         background: url('./image/bg.jpg') no-repeat center center;
         background-size: cover;
       }
-      #app1 > span {
-        left: 50%;
-        bottom: 9%;
-        transform: translateX(-50%);
+      #app1 > img {
+        width: 55px;
+        left: 245px;
+        top: 340px;
         z-index: 2;
-        width: 22vw;
-        height: 22vw;
         position: absolute;
       }
 
@@ -95,7 +93,7 @@
 
 
       <div id="app1">
-        <span></span>
+        <img src="./image/click.gif" alt="click">
       </div>
 
       <div id="app2" class="dn">
@@ -107,7 +105,7 @@
 
     <script>
       const gif = document.querySelector('#app > img');
-      const btn = document.querySelector('#app1 > span');
+      const btn = document.querySelector('#app1 > img');
       const app1 = document.querySelector('#app1');
       const app2 = document.querySelector('#app2');
 
