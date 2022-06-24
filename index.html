@@ -117,24 +117,23 @@
         app2.classList.remove('dn');
         setTimeout(() => {
           gif.classList.remove('ani');
-          gif.classList.add('oy');
-          setTimeout(() => {
-            gif.classList.add('dn');
-          }, 1000);
-        }, 4000);
+          gif.classList.add('dn');
+        }, 3500)
       });
 
       const back = () => {
+        gif.classList.add('dn');
         app1.classList.remove('dn');
         app2.classList.add('dn');
       };
 
-      const reloadIframe = () =>{
-        console.log('reload iframe');
-        app2.querySelector('iframe').src = app2.querySelector('iframe').src;
+      function reloadIframe () {
+        const iframeSrc = app2.querySelector('iframe').src;
+        app2.querySelector('iframe').remove();
+        const iframeHTML = `<iframe src=${iframeSrc}></iframe>`;
+        app2.insertAdjacentHTML('beforeend', iframeHTML );
       }
-    
-      // 劫持浏览器返回功能
+
     </script>
   </body>
 </html>
