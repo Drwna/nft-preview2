@@ -6,23 +6,34 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
     <title>on-page</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-      }
+      * { margin: 0; padding: 0; border: 0; }
+
       #app {
-        margin: 0 auto;
-        height: 100vh;
+        width: 100vw;
         max-width: 500px;
+        height: 100vh;
+        margin: 0 auto;
         position: relative;
       }
+
       #app > img {
-        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        z-index: 999;
       }
-      #app > a {
+
+      #app1 {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: url('./image/bg.jpg') no-repeat center center;
+        background-size: cover;
+      }
+      #app1 > span {
         left: 50%;
         bottom: 9%;
         transform: translateX(-50%);
@@ -31,12 +42,93 @@
         height: 22vw;
         position: absolute;
       }
+
+      .ani {
+        width: 100%;
+        animation: ani 6s ease-in-out infinite;
+      }
+
+      @keyframes ani {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 0; }
+      }
+
+      /*    app2*/
+      #app2 {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      #app2 > img {
+        width: 24px;
+        height: 24px;
+        top: 40px;
+        left: 20px;
+        font-size: 25px;
+        color: black;
+        position: absolute;
+      }
+      #app2 > iframe {
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      .dn { display: none; }
+
+      .oy { opacity: 0; }
+
+      #app > .absolute {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     </style>
   </head>
   <body>
     <div id="app">
-      <img src="./image/bg.jpg" alt="bg" />
-      <a href="./page.html"></a>
+      <img class="dn" src="./image/gif.gif" alt="animation" />
+
+
+      <div id="app1">
+        <span></span>
+      </div>
+
+      <div id="app2" class="dn">
+        <iframe src="https://720yun.com/t/e9vkbhrws1l" frameborder="no"></iframe>
+        <img src="./image/back.png" onclick="back()" alt="back" />
+      </div>
+
     </div>
+
+    <script>
+      const gif = document.querySelector('#app > img');
+      const btn = document.querySelector('#app1 > span');
+      const app1 = document.querySelector('#app1');
+      const app2 = document.querySelector('#app2');
+
+      btn.addEventListener('click', () => {
+        gif.classList.remove('dn');
+        gif.classList.add('ani');
+        app1.classList.add('dn');
+        app2.classList.remove('dn');
+        setTimeout(() => {
+          gif.classList.remove('ani');
+          gif.classList.add('oy');
+          setTimeout(() => {
+            gif.classList.add('dn');
+          }, 1000);
+        }, 5000);
+      });
+
+      const back = () => {
+        app1.classList.remove('dn');
+        app2.classList.add('dn');
+      };
+    </script>
   </body>
 </html>
