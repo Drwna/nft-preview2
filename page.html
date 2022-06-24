@@ -15,18 +15,16 @@
         height: 100vh;
         position: relative;
       }
-      span {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
+      #app > img {
+        width: 24px;
+        height: 24px;
         top: 40px;
         left: 20px;
         font-size: 25px;
         color: black;
         position: absolute;
       }
-      iframe {
+      #app > iframe {
         border: none;
         outline: none;
         width: 100%;
@@ -37,7 +35,7 @@
   <body>
     <div id="app">
       <iframe src="https://720yun.com/t/e9vkbhrws1l" frameborder="no"></iframe>
-      <span onclick="window.history.back()">&lt;</span>
+      <img src="./image/back.png" onclick="window.history.back();" alt="back" />
     </div>
   </body>
 </html>
