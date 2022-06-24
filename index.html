@@ -36,14 +36,14 @@
       #app1 > img {
         width: 40px;
         left: 233px;
-        top: 399px;
+        top: 295px;
         z-index: 2;
         position: absolute;
       }
 
       .ani {
         width: 100%;
-        animation: ani 4s ease-in-out infinite;
+        animation: ani 4s ease-in-out;
       }
 
       @keyframes ani {
@@ -110,6 +110,7 @@
       const app2 = document.querySelector('#app2');
 
       btn.addEventListener('click', () => {
+        reloadIframe();
         gif.classList.remove('dn');
         gif.classList.add('ani');
         app1.classList.add('dn');
@@ -127,6 +128,13 @@
         app1.classList.remove('dn');
         app2.classList.add('dn');
       };
+
+      const reloadIframe = () =>{
+        console.log('reload iframe');
+        app2.querySelector('iframe').src = app2.querySelector('iframe').src;
+      }
+    
+      // 劫持浏览器返回功能
     </script>
   </body>
 </html>
